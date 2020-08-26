@@ -1,0 +1,172 @@
+.header1
+{
+   /* padding: 20px;*/
+   /*background-color: #8EC5FC;
+   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);*/
+   background-color: #8EC5FC;
+   background-image: linear-gradient(225deg, #8EC5FC 48%, #E0C3FC 50%);
+
+    text-align:center;
+    font-size:42px;
+    color: #FF3CAC;
+    /* font type */
+    font-family: 'Norican', cursive;
+     /* choose size of  title bar */
+    padding: 20px;
+    margin-top:14px;
+    margin-bottom:18px;
+
+}
+body
+{
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-attachment: fixed;
+    text-align:right;
+    margin-right:6.5px;
+    margin-top:8px;
+    margin-bottom:8px;
+
+
+
+}
+
+aside {
+  width: 229px;
+  height:784px;
+  margin-top:8px;
+  margin-bottom:8px;
+  margin-left:3px;
+  margin:1.2px;
+  float:left;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(225deg, #8EC5FC 48%, #E0C3FC 50%);
+
+
+}
+canvas{
+    border: 1px solid black;
+    background-color: white;
+
+}
+/* positioin and settings of word drawing tool*/
+#drawing_tool{
+margin-top:4px;
+margin-bottom:10px;
+text-align:center;
+font-size:38px;
+/* font type */
+font-family: 'Norican', cursive;
+/* font color */
+color: #FF3CAC;
+}
+/* positioin and settings of paragraph note*/
+#note{
+font-size:20px;
+/* font type */
+font-family: 'Oswald', sans-serif;
+/* font color */
+color:#AA0000;
+margin-top:1px;
+margin-left:15px;
+margin-bottom:15px;
+text-align:left;
+}
+/* positioin and settings of draw button */
+#draw{
+height:60px;
+width:170px;
+margin-right:28px;
+font-size:35px;
+/* font type */
+font-family: 'Norican', cursive;
+/* font color */
+color: #FF3CAC;
+}
+/* positioin and settings of draw slider*/
+#brushSize{
+margin-top:35px;
+margin-right:1px;
+margin-left:1px;
+}
+/* positioin and settings of eraser button */
+#eraser1{
+height:60px;
+width:170px;
+margin-top:16px;
+margin-right:28px;
+font-size:35px;
+/* font type */
+font-family: 'Norican', cursive;
+/* font color */
+color: #FF3CAC;
+}
+/* positioin and settings of eraser slider*/
+#eraserSize{
+margin-top:35px;
+margin-right:1px;
+margin-left:1px;
+}
+/* positioin and settings of color wheel*/
+#color1{
+height:60px;
+width:170px;
+margin-right:26px;
+margin-top:1px;
+margin-bottom:35px;
+}
+/* positioin and settings of save button */
+#save{
+height:60px;
+width:170px;
+margin-top:16px;
+margin-right:28px;
+font-size:35px;
+/* font type */
+font-family: 'Norican', cursive;
+/* font color */
+color: #FF3CAC;
+}
+.slider{
+width: 100%;
+}
+#choose_color{
+text-align:center;
+margin-top:26px;
+margin-bottom:6px;
+font-size:30px;
+/* font type */
+font-family: 'Norican', cursive;
+/* font color */
+color: #FF3CAC;
+}
+/* using draw and eraser id to change  buttons color */
+#draw
+{
+background-image: linear-gradient(to right, #CC95C0 0%, #DBD4B4 51%, #CC95C0 100%)
+}
+#eraser1{
+background-image: linear-gradient(to right, #CC95C0 0%, #DBD4B4 51%, #CC95C0 100%)
+}
+/* using draw and eraser id to change  buttons color */
+#save{
+background-image: linear-gradient(to right, #CC95C0 0%, #DBD4B4 51%, #CC95C0 100%)
+}
+/* saving link settings and position */
+a{margin:0;padding:0;font-family:sans-serif;background: linear-gradient(to right, #CC95C0 0%, #DBD4B4 51%, #CC95C0 100%)}
+a {
+    padding: 8px 58px;
+    margin-right:26px;
+    font-size:35px;
+    /* font type */
+    font-family: 'Norican', cursive;
+    /* font color */
+    color: #FF3CAC;
+}
+
+
+
+
+
+
+

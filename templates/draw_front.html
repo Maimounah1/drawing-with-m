@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- link with css file -->
+   <link href="/static/style.css" rel="stylesheet">
+    <!-- link with google font api -->
+   <link href="https://fonts.googleapis.com/css2?family=Norican&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@563&display=swap" rel="stylesheet">
+    </head>
+    <title>Drawing Web</title>
+    <body>
+
+<h3 class="header1" >  Drawing  With  M :)</h3>
+ <!-- add canvas to html  width was 1658-->
+
+<canvas id="myPics" width="1655" height="784"> </canvas>
+ <!-- create vertical tools bar -->
+         <aside id="aside1">
+          <p id="drawing_tool">Drawing Tools</p>
+          <p id="note"> Note: if you want to
+                        use drawing slider
+                        please, set eraser
+                        slider at zero
+                        position and vice versa,
+                        and after set slider click
+                        the button again.</p>
+          <!-- draw button -->
+          <button class="w3-button w3-round" onclick="Draw()" id="draw">Draw</button>
+          <!-- draw slider -->
+          <!-- create slider to choose size of pen -->
+          <div class="slidecontainer">
+          <input type="range" min=1 max=100 class="slider" id="brushSize" >
+          </div>
+          <!-- eraser button -->
+          <br><button class="w3-button w3-round" onclick="eraser()" id="eraser1">Eraser</button></br>
+          <!-- create slider to choose size of eraser -->
+          <div class="slidecontainer">
+          <input type="range" min=1 max=100 class="slider" id="eraserSize">
+          </div>
+          <!-- create color packer to choose pen color -->
+          <div>
+          <p id="choose_color">Choose Color</p>
+          <input type="color" id="color1" name="color" value="#FF3CAC">
+          <!--<label for="color1">Choose Color</label> -->
+          </div>
+           <!-- save button -->
+         <!-- <button class="w3-button w3-round"  id="save">Save</button> -->
+
+         </aside>
+
+
+
+
+<script>
+function Draw (){
+// When true, moving the mouse draws on the canvas
+var isDrawing = false;
+// define x and y axises
+var x = 0;
+var y = 0;
+//canvas defination and settings
+// call canvas from html and run it
+const myPics = document.getElementById('myPics');
+const context = myPics.getContext('2d');
+// When true, moving the mouse draws on the canvas
+// event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
+// mousedown do event when left mouse pressed
+// (e) reference for event object which will be passed to event handlers.
+// Add the event listeners for mousedown, mousemove, and mouseup
+myPics.addEventListener('mousedown', e => {
+  x = e.offsetX;
+  y = e.offsetY;
+  isDrawing = true;
+});
+
+
+myPics.addEventListener('mousemove', e => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, e.offsetX, e.offsetY);
+    x = e.offsetX;
+    y = e.offsetY;
+  }
+});
+//The window object is supported by all browsers. It represents the browser's window.
+//All global JavaScript objects, functions, and variables automatically become members of the window object.
+// set every thing to fasls (0) because the mouse up
+window.addEventListener('mouseup', e => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, e.offsetX, e.offsetY);
+    x = 0;
+    y = 0;
+    isDrawing = false;
+  }
+});
+//x1, y1: This parameter takes the x-coordinate of the first point.
+//x2, y2: This parameter takes the y-coordinate of the second point.
+function drawLine(context, x1, y1, x2, y2) {
+// cotext give me the value or component of something
+// to begins a path or resets current path.
+  context.beginPath();
+  context.strokeStyle = color;
+  context.lineWidth = document.getElementById('brushSize').value;
+// (moveTo) start new point
+// )(lineTo) draw line from starting point
+  context.moveTo(x1, y1);
+  context.lineTo(x2, y2);
+// to run path
+  context.stroke();
+  context.closePath();
+}
+}
+
+// create eraser function
+function eraser(){
+// When true, moving the mouse draws on the canvas
+var isDrawing = false;
+// define x and y axises
+var x = 0;
+var y = 0;
+//canvas defination and settings
+// call canvas from html and run it
+const myPics = document.getElementById('myPics');
+const context = myPics.getContext('2d');
+// When true, moving the mouse draws on the canvas
+// event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
+// mousedown do event when left mouse pressed
+// (e) reference for event object which will be passed to event handlers.
+// Add the event listeners for mousedown, mousemove, and mouseup
+myPics.addEventListener('mousedown', a => {
+  x = a.offsetX;
+  y = a.offsetY;
+  isDrawing = true;
+});
+
+
+myPics.addEventListener('mousemove', a => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, a.offsetX, a.offsetY);
+    x = a.offsetX;
+    y = a.offsetY;
+  }
+});
+//The window object is supported by all browsers. It represents the browser's window.
+//All global JavaScript objects, functions, and variables automatically become members of the window object.
+// set every thing to fasls (0) because the mouse up
+window.addEventListener('mouseup', a => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, a.offsetX, a.offsetY);
+    x = 0;
+    y = 0;
+    isDrawing = false;
+  }
+});
+//x1, y1: This parameter takes the x-coordinate of the first point.
+//x2, y2: This parameter takes the y-coordinate of the second point.
+function drawLine(context, x1, y1, x2, y2) {
+// cotext give me the value or component of something
+// to begins a path or resets current path.
+context.beginPath();
+context.strokeStyle = 'white';
+context.lineWidth =document.getElementById('eraserSize').value;
+// (moveTo) start new point
+// )(lineTo) draw line from starting point
+  context.moveTo(x1, y1);
+  context.lineTo(x2, y2);
+// to run path
+  context.stroke();
+  context.closePath();
+}
+}
+//defualt color is black"rgb(0, 0, 0)"
+var color ="#FF3CAC";
+//function to change color
+function change(e){
+  color = this.value;
+}
+document.getElementById("color1").onchange = change;
+// function to save canvas as jpg file
+ canvas = document.querySelector( 'canvas' ),
+    c = canvas.getContext( '2d' ),
+ link = document.createElement('a');
+    link.innerHTML = 'Save';
+link.addEventListener('click', function(ev) {
+    link.href = canvas.toDataURL();
+    link.download = "mypainting.png";
+}, false);
+//document.body.appendChild(link);
+document.getElementById("aside1").appendChild(link);
+</script>
+</script>
+<!-- use googelepis to use jquery.js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+//to change brush size
+$("#brushSize").on("input", function Draw() {
+    context.lineWidth = $(this).val();
+});
+//to change eraser size
+$("#eraserSize").on("input", function eraser(){
+    context.lineWidth = $(this).val();
+});
+</script>
+
+
+
+
+
+    </body>
+
+</html>
